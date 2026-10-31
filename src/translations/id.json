@@ -1,0 +1,38 @@
+{
+  "appName": "Darul Habibi",
+  "splash": {
+    "tagline": "Pasu, Pacu, Laku"
+  },
+  "home": {
+    "menu1": "Konversi Jawi",
+    "menu2": "Menu 2",
+    "kalam": "Kalam",
+    "alBarzanji": "Al-Barzanji",
+    "tabs": {
+      "home": "Beranda",
+      "user": "Pengguna",
+      "about": "Tentang"
+    }
+  },
+  "menu1": {
+    "title": "Konversi Jawi",
+    "inputLabel": "Masukkan Teks",
+    "inputPlaceholder": "Contoh: saya makan nasi",
+    "convertButton": "Konversi",
+    "resultLabel": "Hasil Konversi",
+    "emptyResult": "Hasil akan muncul di sini",
+    "emptyInputWarning": "Silakan masukkan teks terlebih dahulu"
+  },
+  "menu2": {
+    "title": "Menu 2",
+    "placeholder": "Halaman ini sedang dalam pengembangan"
+  },
+  "user": {
+    "title": "Pengguna",
+    "placeholder": "Halaman pengguna sedang dalam pengembangan"
+  },
+  "common": {
+    "language": "Bahasa",
+    "back": "Kembali"
+  }
+}
