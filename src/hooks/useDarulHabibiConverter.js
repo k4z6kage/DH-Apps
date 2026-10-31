@@ -1,31 +1,31 @@
 import { useState, useCallback } from 'react';
-import { convertToJawi } from '../utils/jawiConverter';
+import { convertToDarulHabibi } from '../utils/darulHabibiConverter';
 
 /**
- * useJawiConverter
+ * useDarulHabibiConverter
  * Hook kecil untuk mengelola state input/hasil konversi Jawi,
  * supaya komponen Screen tetap bersih (hanya urusan tampilan).
  *
  * @returns {{
  *  inputText: string,
  *  setInputText: Function,
- *  jawiResult: string,
+ *  darulHabibiResult: string,
  *  convert: Function,
  *  reset: Function
  * }}
  */
-export default function useJawiConverter() {
+export default function useDarulHabibiConverter() {
   const [inputText, setInputText] = useState('');
-  const [jawiResult, setJawiResult] = useState('');
+  const [darulHabibiResult, setDarulHabibiResult] = useState('');
 
   const convert = useCallback(() => {
-    setJawiResult(convertToJawi(inputText.trim()));
+    setDarulHabibiResult(convertToDarulHabibi(inputText.trim()));
   }, [inputText]);
 
   const reset = useCallback(() => {
     setInputText('');
-    setJawiResult('');
+    setDarulHabibiResult('');
   }, []);
 
-  return { inputText, setInputText, jawiResult, convert, reset };
+  return { inputText, setInputText, darulHabibiResult, convert, reset };
 }

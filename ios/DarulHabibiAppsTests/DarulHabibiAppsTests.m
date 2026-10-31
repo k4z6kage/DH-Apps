@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface JawiConverterAppTests : XCTestCase
+@interface DarulHabibiAppsTests : XCTestCase
 
 @end
 
-@implementation JawiConverterAppTests
+@implementation DarulHabibiAppsTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

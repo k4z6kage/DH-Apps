@@ -1,4 +1,4 @@
-# Jawi Converter App (React Native)
+# Darul Habibi Apps (React Native)
 
 Aplikasi React Native untuk mengonversi teks Bahasa Indonesia (huruf Latin)
 ke tulisan Arab Jawi, dengan dukungan multi-bahasa (Indonesia/English)
@@ -8,11 +8,11 @@ dan tampilan minimalis.
 
 - Splash screen (±2 detik) → Home
 - Home dengan 2 menu utama (tombol besar, di tengah layar)
-- Menu 1: Konversi Jawi (input → tombol Konversi → hasil)
+- Menu 1: Konversi Darul Habibi (input → tombol Konversi → hasil)
 - Menu 2: Placeholder, siap dikembangkan
 - Multi-bahasa (ID/EN) via `react-i18next`, ganti bahasa langsung tanpa restart
 - Engine transliterasi Jawi buatan sendiri, 100% offline
-  (`src/utils/jawiConverter.js`)
+  (`src/utils/darulHabibiConverter.js`)
 - Dukungan font Arab (Amiri / Noto Naskh Arabic) untuk menampilkan hasil Jawi
 - Struktur folder modular & scalable (screens, components, services, hooks,
   utils, translations, dsb.)
@@ -28,8 +28,8 @@ src/
 ├── screens/             # SplashScreen, HomeScreen, Menu1, Menu2, UserScreen
 ├── navigation/          # AppNavigator.js (React Navigation stack)
 ├── translations/        # i18n.js, id.json, en.json
-├── utils/                # jawiConverter.js (engine transliterasi)
-├── hooks/                # useJawiConverter.js
+├── utils/                # darulHabibiConverter.js (engine transliterasi)
+├── hooks/                # useDarulHabibiConverter.js
 ├── data/                 # data statis konten (menu2Pages.js)
 ├── services/             # tempat service API di masa depan
 └── constants/            # colors.js, fonts.js
@@ -57,7 +57,7 @@ Ikuti panduan resmi: https://reactnative.dev/docs/environment-setup
 Di lokasi terpisah (BUKAN di dalam folder hasil unduhan ini), jalankan:
 
 ```bash
-npx @react-native-community/cli@latest init JawiConverterApp --version 0.73.6
+npx @react-native-community/cli@latest init DarulHabibiApps --version 0.73.6
 ```
 
 Perintah ini akan membuat project baru lengkap dengan folder `android/`
@@ -122,15 +122,15 @@ Anda menjalankan perintah dari root folder project (yang berisi
 ## 🔤 Contoh Penggunaan Engine Konversi
 
 ```js
-import { convertToJawi } from './src/utils/jawiConverter';
+import { convertToDarulHabibi } from './src/utils/darulHabibiConverter';
 
-convertToJawi('akan');            // -> اكن
-convertToJawi('makan nasi');      // -> ماكن ناسي
-convertToJawi('saya makan nasi'); // -> ساي ماكن ناسي
+convertToDarulHabibi('akan');            // -> اكن
+convertToDarulHabibi('makan nasi');      // -> ماكن ناسي
+convertToDarulHabibi('saya makan nasi'); // -> ساي ماكن ناسي
 ```
 
 Aturan lengkap & penjelasan logic ada sebagai komentar di dalam file
-`src/utils/jawiConverter.js`.
+`src/utils/darulHabibiConverter.js`.
 
 ## 🌐 Menambah Bahasa Baru
 
@@ -165,4 +165,4 @@ Ejaan Jawi baku memiliki banyak aturan kompleks (pepet vs taling, hamzah,
 kata serapan Arab, dll). Engine di aplikasi ini memakai pendekatan heuristik
 sederhana namun konsisten dengan contoh-contoh standar (lihat bagian
 "Contoh Penggunaan Engine" di atas), dan didesain agar mudah disempurnakan
-lebih lanjut di `src/utils/jawiConverter.js`.
+lebih lanjut di `src/utils/darulHabibiConverter.js`.

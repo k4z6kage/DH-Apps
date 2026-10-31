@@ -7,17 +7,18 @@ import {
   Animated,
   PanResponder,
   Pressable,
+  ScrollView,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import COLORS from '../../constants/colors';
 import FONTS from '../../constants/fonts';
-import PAGES from '../../data/menu2Pages';
+import PAGES from '../../data/kalam';
 
 const PAGE_PADDING = 24;
-const SWIPE_THRESHOLD = 40; // jarak minimal (px) sebelum halaman berputar
+const SWIPE_THRESHOLD = 10; // jarak minimal (px) sebelum halaman berputar
 
-export default function Menu2Screen() {
+export default function Kalam() {
   const { t } = useTranslation();
   const [currentPage, setCurrentPage] = useState(0);
   const [flipDirection, setFlipDirection] = useState(null); // 'forward' | 'backward' | null
@@ -79,7 +80,9 @@ export default function Menu2Screen() {
   const panResponder = useMemo(
     () =>
       PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        // Jangan ambil alih gesture saat sentuhan dimulai, supaya ScrollView
+        // di dalam halaman tetap bisa di-scroll secara vertikal.
+        onStartShouldSetPanResponder: () => false,
         onMoveShouldSetPanResponder: (_, gestureState) =>
           Math.abs(gestureState.dx) > 10 &&
           Math.abs(gestureState.dx) > Math.abs(gestureState.dy),
@@ -141,26 +144,22 @@ export default function Menu2Screen() {
   const BookPage = ({ page }) => {
     return (
       <View style={styles.pageCard}>
-        {/* Garis-garis kertas buku tulis */}
-        <View style={styles.linesContainer}>
-          {Array.from({ length: 15 }).map((_, i) => (
-            <View key={i} style={styles.notebookLine} />
-          ))}
-        </View>
-
-        {/* Garis batas margin kiri buku tulis merah */}
-        <View style={styles.redMarginLine} />
-
-        {/* Isi konten halaman */}
-        <View style={styles.pageContent}>
+        {/* Isi konten halaman — bisa di-scroll jika melebihi tinggi kertas */}
+        <ScrollView
+          style={styles.pageScroll}
+          contentContainerStyle={styles.pageContent}
+          showsVerticalScrollIndicator
+          nestedScrollEnabled
+          bounces={false}
+        >
           <Text style={styles.pageTitle}>{page.title}</Text>
-          
+
           {page.arabic && (
             <Text style={styles.pageArabic}>{page.arabic}</Text>
           )}
 
           <Text style={styles.pageText}>{page.content}</Text>
-        </View>
+        </ScrollView>
 
         {/* Nomor halaman di bagian bawah */}
         <Text style={styles.pageNumber}>- {page.pageNumber} -</Text>
@@ -228,7 +227,6 @@ export default function Menu2Screen() {
                     <View key={i} style={styles.notebookLine} />
                   ))}
                 </View>
-                <View style={styles.redMarginLineRight} />
                 <View style={styles.spineFoldShadow} />
               </View>
             </Animated.View>
@@ -293,15 +291,16 @@ const styles = StyleSheet.create({
   pageCard: {
     flex: 1,
     backgroundColor: '#FAF6EE', // Kertas krem hangat
-    padding: PAGE_PADDING,
-    paddingTop: 40, // Space untuk Status Bar / Notches
+    // padding: PAGE_PADDING,
+    paddingTop:2,
     paddingLeft: 42, // Margin lebih besar untuk binder spine kiri
-    paddingBottom: 100, // Space untuk area floating controls bawah
+    paddingRight: 24, 
+    paddingBottom: 80, // Space untuk area floating controls bawah
     justifyContent: 'space-between',
     position: 'relative',
   },
   pageBack: {
-    paddingLeft: PAGE_PADDING,
+    paddingLeft: 24,
     paddingRight: 42, // margin dibalik untuk sisi belakang
   },
   linesContainer: {
@@ -325,22 +324,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6EFF7', // Garis biru notebook tulis tipis
     width: '100%',
   },
-  redMarginLine: {
-    position: 'absolute',
-    right: 36,
-    top: 0,
-    bottom: 0,
-    width: 1,
-    backgroundColor: '#cfb4f3', // Garis merah notebook margin kiri
-  },
-  redMarginLineRight: {
-    position: 'absolute',
-    right: 36,
-    top: 0,
-    bottom: 0,
-    width: 1,
-    backgroundColor: '#c5b4f3', // Garis merah notebook margin kanan
-  },
   spineFoldShadow: {
     position: 'absolute',
     right: 0,
@@ -349,9 +332,12 @@ const styles = StyleSheet.create({
     width: 25,
     backgroundColor: 'rgba(0,0,0,0.05)', // Gradien lipatan kertas kiri
   },
-  pageContent: {
+  pageScroll: {
     flex: 1,
-    marginTop: 20,
+  },
+  pageContent: {
+    flexGrow: 1,
+    paddingBottom: 16,
   },
   pageSubtitle: {
     fontSize: 12,
@@ -359,14 +345,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 2,
-    marginBottom: 4,
+    // marginBottom: 4,
     fontFamily: FONTS.latinBold,
   },
   pageTitle: {
+    textAlign:'center',
     fontSize: 26,
     fontWeight: '800',
-    color: '#3E2A18', // Cokelat tua untuk teks klasik
-    marginBottom: 24,
+    color: '#3E2A18',
     fontFamily: FONTS.latinBold,
   },
   pageArabic: {

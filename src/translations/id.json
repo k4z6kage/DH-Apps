@@ -4,8 +4,8 @@
     "tagline": "Pasu, Pacu, Laku"
   },
   "home": {
-    "menu1": "Konversi Jawi",
-    "menu2": "Menu 2",
+    "menu1": "Konversi Darul Habibi",
+    "menu2": "Menu 3",
     "kalam": "Kalam",
     "alBarzanji": "Al-Barzanji",
     "tabs": {
@@ -15,7 +15,7 @@
     }
   },
   "menu1": {
-    "title": "Konversi Jawi",
+    "title": "Konversi Darul Habibi",
     "inputLabel": "Masukkan Teks",
     "inputPlaceholder": "Contoh: saya makan nasi",
     "convertButton": "Konversi",

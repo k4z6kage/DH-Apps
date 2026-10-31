@@ -4,8 +4,8 @@
     "tagline": "Pasu, Pacu, Laku"
   },
   "home": {
-    "menu1": "Jawi Converter",
-    "menu2": "Menu 2",
+    "menu1": "Darul Habibi Converter",
+    "menu2": "Menu 3",
     "kalam": "Kalam",
     "alBarzanji": "Al-Barzanji",
     "tabs": {
@@ -14,8 +14,8 @@
       "about": "About"
     }
   },
-  "menu1": {
-    "title": "Jawi Converter",
+  "menu": {
+    "title": "Darul Habibi Converter",
     "inputLabel": "Enter Text",
     "inputPlaceholder": "Example: saya makan nasi",
     "convertButton": "Convert",

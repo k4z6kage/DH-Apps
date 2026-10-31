@@ -158,7 +158,7 @@ export default function HomeScreen({ navigation }) {
         <View style={styles.center}>
           <AppButton
             label={t('home.kalam')}
-            onPress={() => navigation.navigate('Menu2')}
+            onPress={() => navigation.navigate('Kalam')}
             variant="ghost"
           />
           <AppButton
@@ -198,6 +198,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    paddingTop:20
   },
   bgOverlay: {
     ...StyleSheet.absoluteFillObject,

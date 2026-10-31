@@ -18,10 +18,10 @@
 export const PAGES = [
   {
     pageNumber: 1,
-    title: 'Aksara Jawi',
+    title: 'Bab Kalam',
     arabic: 'ابجد جاوي',
     content:
-      'Aksara Jawi (أكسارا جاوي) adalah abjad Arab yang disesuaikan untuk menuliskan Bahasa Melayu dan Bahasa Indonesia. Aksara ini telah digunakan luas sejak abad ke-14 Masehi di Nusantara.',
+      'Aksara Jawi (أكسارا جاوي) adalah abjad Arab yang disesuaikan untuk menuliskan Bahasa Melayu dan Bahasa Indonesia. Aksara ini telah digunakan luas sejak abad ke-14 Masehi di Nusantara. lorem100 asdoio aosdhoa bkajd euaieudua asiudhais dasduhasd iuhasd uh ahsdoaiuhsd iuahsduheoi sefsrht sdfsdofhs asd Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letrasets Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.',
   },
   {
     pageNumber: 2,
@@ -42,7 +42,7 @@ export const PAGES = [
     title: 'Mari Lestarikan',
     arabic: 'لستاريکن بودايا',
     content:
-      'Melalui aplikasi Jawi Converter ini, kami berupaya melestarikan warisan budaya berharga ini agar dapat dipelajari dengan mudah secara gratis, offline, dan modern di era digital.',
+      'Melalui aplikasi Darul Habibi Converter ini, kami berupaya melestarikan warisan budaya berharga ini agar dapat dipelajari dengan mudah secara gratis, offline, dan modern di era digital.',
   },
 ];
 

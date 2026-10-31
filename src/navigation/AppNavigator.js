@@ -1,12 +1,11 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 
 import SplashScreen from '../screens/SplashScreen';
 import HomeScreen from '../screens/HomeScreen';
-import Menu1Screen from '../screens/Menu1Screen';
-import Menu2Screen from '../screens/Menu2Screen';
 import UserScreen from '../screens/UserScreen';
 import Kalam from '../screens/Kalam';
 import COLORS from '../constants/colors';
@@ -48,16 +47,6 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="Menu1"
-          component={Menu1Screen}
-          options={{ title: t('menu1.title') }}
-        />
-        <Stack.Screen
-          name="Menu2"
-          component={Menu2Screen}
-          options={{ title: t('menu2.title') }}
-        />
-        <Stack.Screen
           name="User"
           component={UserScreen}
           options={{ title: t('user.title') }}
@@ -65,7 +54,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Kalam"
           component={Kalam}
-          options={{ title: 'Kalam' }}
+          options={{
+            title: '',
+            headerTitleAlign:'center',
+            headerStyle: { backgroundColor: '#FAF6EE' },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

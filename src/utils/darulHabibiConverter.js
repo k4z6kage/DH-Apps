@@ -1,5 +1,5 @@
 /**
- * jawiConverter.js
+ * darulHabibiConverter.js
  * ------------------------------------------------------------------
  * Engine transliterasi teks Bahasa Indonesia (huruf Latin) ke
  * tulisan Arab Jawi, dibuat sepenuhnya secara lokal (tanpa API online).
@@ -136,7 +136,7 @@ function convertWord(word) {
  * @param {string} text - teks Bahasa Indonesia, contoh: "saya makan nasi"
  * @returns {string} teks dalam tulisan Arab Jawi, contoh: "ساي ماكن ناسي"
  */
-export function convertToJawi(text) {
+export function convertToDarulHabibi(text) {
   if (!text || typeof text !== 'string') {
     return '';
   }
@@ -148,4 +148,4 @@ export function convertToJawi(text) {
     .join(' ');
 }
 
-export default convertToJawi;
+export default convertToDarulHabibi;

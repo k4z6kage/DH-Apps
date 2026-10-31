@@ -9,7 +9,7 @@ misalnya:
 
 Saat ini aplikasi belum membutuhkan service apa pun karena:
 - Tidak ada sistem login/registrasi
-- Engine konversi Jawi berjalan 100% offline (lihat `src/utils/jawiConverter.js`)
+- Engine konversi Jawi berjalan 100% offline (lihat `src/utils/darulHabibiConverter.js`)
 
 Contoh pola penulisan service ke depannya:
 
