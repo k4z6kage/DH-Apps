@@ -157,6 +157,11 @@ export default function HomeScreen({ navigation }) {
         {/* Konten utama: benar-benar di tengah layar */}
         <View style={styles.center}>
           <AppButton
+            label={t('home.sampul')}
+            onPress={() => navigation.navigate('Sampul')}
+            variant="ghost"
+          />
+          <AppButton
             label={t('home.kalam')}
             onPress={() => navigation.navigate('Kalam')}
             variant="ghost"

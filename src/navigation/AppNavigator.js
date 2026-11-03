@@ -8,6 +8,7 @@ import SplashScreen from '../screens/SplashScreen';
 import HomeScreen from '../screens/HomeScreen';
 import UserScreen from '../screens/UserScreen';
 import Kalam from '../screens/Kalam';
+import Sampul from '../screens/Sampul';
 import COLORS from '../constants/colors';
 
 const Stack = createNativeStackNavigator();
@@ -54,6 +55,15 @@ export default function AppNavigator() {
         <Stack.Screen
           name="Kalam"
           component={Kalam}
+          options={{
+            title: '',
+            headerTitleAlign:'center',
+            headerStyle: { backgroundColor: '#FAF6EE' },
+          }}
+        />
+        <Stack.Screen
+          name="Sampul"
+          component={Sampul}
           options={{
             title: '',
             headerTitleAlign:'center',

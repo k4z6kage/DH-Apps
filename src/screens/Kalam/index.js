@@ -142,23 +142,30 @@ export default function Kalam() {
 
   // Komponen Halaman Kertas
   const BookPage = ({ page }) => {
+    // Hanya halaman 10 yang teksnya rata tengah.
+    const isCentered = [9,10,11].includes(page.pageNumber);
+
     return (
       <View style={styles.pageCard}>
         {/* Isi konten halaman — bisa di-scroll jika melebihi tinggi kertas */}
         <ScrollView
           style={styles.pageScroll}
-          contentContainerStyle={styles.pageContent}
+          contentContainerStyle={[
+            styles.pageContent,
+            isCentered && styles.pageContentCentered,
+          ]}
           showsVerticalScrollIndicator
           nestedScrollEnabled
           bounces={false}
         >
-          <Text style={styles.pageTitle}>{page.title}</Text>
-
-          {page.arabic && (
-            <Text style={styles.pageArabic}>{page.arabic}</Text>
+          {/* Jangan render title kosong agar tidak menyisakan ruang di atas */}
+          {!!page.title && (
+            <Text style={styles.pageTitle}>{page.title}</Text>
           )}
 
-          <Text style={styles.pageText}>{page.content}</Text>
+          <Text style={[styles.pageText, isCentered && styles.pageTextCenter]}>
+            {page.content}
+          </Text>
         </ScrollView>
 
         {/* Nomor halaman di bagian bawah */}
@@ -183,7 +190,7 @@ export default function Kalam() {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.safeArea} edges={['bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor="#FAF6EE" />
 
       {/* Book Container - Full Screen */}
@@ -339,6 +346,9 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     paddingBottom: 16,
   },
+  pageContentCentered: {
+    justifyContent: 'center',
+  },
   pageSubtitle: {
     fontSize: 12,
     color: '#8A5E38',
@@ -350,10 +360,11 @@ const styles = StyleSheet.create({
   },
   pageTitle: {
     textAlign:'center',
-    fontSize: 26,
+    fontSize: 25,
     fontWeight: '800',
     color: '#3E2A18',
     fontFamily: FONTS.latinBold,
+    marginBottom:30
   },
   pageArabic: {
     fontSize: 32,
@@ -364,10 +375,13 @@ const styles = StyleSheet.create({
     lineHeight: 44,
   },
   pageText: {
-    fontSize: 16,
+    fontSize: 26,
     color: '#4E3825',
-    lineHeight: 25,
+    lineHeight: 30,
     fontFamily: FONTS.latinRegular,
+  },
+  pageTextCenter: {
+    textAlign: 'center',
   },
   pageNumber: {
     fontSize: 13,
@@ -386,14 +400,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     zIndex: 100,
-  },
-  binderLine: {
-    position: 'absolute',
-    left: 9,
-    top: 0,
-    bottom: 0,
-    width: 2,
-    backgroundColor: '#8E8E8E',
   },
   floatingControls: {
     position: 'absolute',
